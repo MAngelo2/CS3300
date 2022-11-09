@@ -21,6 +21,17 @@ RSpec.feature "Projects", type: :feature do
     end
   end
 
+  context "Return to main menu" do
+    let(:project) { Project.create(title: "Test title", description: "Test content") }
+    before(:each) do
+      visit project_path(project)
+    end
+    scenario "should be successful" do
+      click_link "Back to projects"
+      expect(page).to have_content("Projects")
+    end
+  end
+
   context "Update project" do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
@@ -54,4 +65,6 @@ RSpec.feature "Projects", type: :feature do
       expect(Project.count).to eq(0)
     end
   end
+
+
 end
