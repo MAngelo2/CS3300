@@ -244,6 +244,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails_12factor
+  rexml
   rspec-rails (~> 6.0.0)
   selenium-webdriver
   sprockets-rails
