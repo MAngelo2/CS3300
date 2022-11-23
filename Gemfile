@@ -28,6 +28,8 @@ gem "tzinfo-data"
 
 gem "rexml"
 
+gem "devise"
+
 group :production do
   gem 'pg' # for Heroku deployment
   gem 'rails_12factor'
