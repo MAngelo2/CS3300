@@ -1,6 +1,19 @@
 require 'rails_helper'
 
+RSpec.describe User, type: :model do
+  let(:user) { build(:user) }
+end
+
 RSpec.feature "Projects", type: :feature do
+
+  user = FactoryBot.create(:user)
+  before(:each) do
+    visit new_user_session_path
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+  end
+
   context "Create new project" do
     before(:each) do
       visit new_project_path

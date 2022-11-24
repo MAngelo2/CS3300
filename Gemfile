@@ -62,6 +62,7 @@ group :development, :test do
   gem "sqlite3", "~> 1.4"
   gem 'rspec-rails', '~> 6.0.0'
   gem 'capybara'
+  gem 'factory_bot_rails'
 end
 
 group :development do
