@@ -6,7 +6,17 @@ end
 
 RSpec.feature "Projects", type: :feature do
 
-  user = FactoryBot.create(:user)
+  context "Redirect if not signed in" do
+    scenario ("Should be successful") do
+      visit root_path
+      click_link "Logout"
+      click_link "New project"
+      expect(page).to have_content("Forgot your password?")
+    end
+  end
+
+  let(:user) {FactoryBot.create(:user)}
+
   before(:each) do
     visit new_user_session_path
     fill_in "Email", with: user.email
