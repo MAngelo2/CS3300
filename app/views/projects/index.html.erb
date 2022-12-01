@@ -1,25 +1,67 @@
+
+
+<div class="container-fluid">
+
+<nav class="navbar navbar-expand-sm bg-dark text-white">
+  <div class="container-fluid">
+      <div class="btn btn-primary">
+
+        <%= link_to "Home", projects_path, :class => "btn", :class => "text-white" %>
+
+      </div>
+
+      <% if user_signed_in? %>
+      Welcome, <%= current_user.email %>
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
+
+  </div>
+
+
+</nav>
+
 <p style="color: green"><%= notice %></p>
 
-<p class="navbar-text float-left">
-<% if user_signed_in? %>
-  Welcome, <%= current_user.email %>
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+<nav class="navbar navbar-expand-sm bg-dark text-white">
 
 <h1>Projects</h1>
 
+</nav>
+
 <div id="projects">
+<div class="row">
   <% @projects.each do |project| %>
+    <div class="col">
     <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
+    <div class="btn btn-primary">
+
+      <%= link_to "Show this project", project, :class => "btn", :class => "text-white" %>
+
+    </div>
+
+    
+    </div>
+    
+    
   <% end %>
 </div>
 
-<%= link_to "New project", new_project_path %>
+
+</div>
+
+<div class="p-2"></div>
+
+<div class="btn btn-primary">
+
+  <%= link_to "New project", new_project_path, :class => "btn", :class => "text-white" %>
+
+</div>
+
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+
+</div>
