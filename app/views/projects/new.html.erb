@@ -1,9 +1,43 @@
-<h1>New project</h1>
+<div class="container-fluid">
 
-<%= render "form", project: @project %>
+<nav class="navbar navbar-expand-sm bg-dark text-white">
+  <div class="container-fluid">
+      <div class="btn btn-primary">
+
+        <%= link_to "Home", projects_path, :class => "btn", :class => "text-white" %>
+
+      </div>
+
+      <% if user_signed_in? %>
+      Welcome, <%= current_user.email %>
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
+
+  </div>
+
+
+</nav>
+
+
+<div class="card">
+  <div class="card-header">New Project</div>
+  <%= render "form", project: @project %>
+
+</div>
+
 
 <br>
 
-<div>
-  <%= link_to "Back to projects", projects_path %>
+<div class="btn btn-primary">
+
+    <%= link_to "Back to projects", projects_path, :class => "btn", :class => "text-white" %>
+
+</div>
+
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
 </div>
