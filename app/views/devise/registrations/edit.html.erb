@@ -1,4 +1,38 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container-fluid">
+
+<nav class="navbar navbar-expand-sm bg-dark text-white">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <div class="btn btn-primary">
+
+        <%= link_to "Home", projects_path, :class => "btn", :class => "text-white" %>
+
+         </div>
+      </li>
+      <li class="nav-item">
+        <a href="aboutme" class="btn btn-primary">About Me</a>
+      </li>
+
+      <li class="nav-item">
+          <% if user_signed_in? %>
+          Welcome, <%= current_user.email %>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+<div class="card">
+  <div class="card-header">Edit Account Information</div>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -41,3 +75,9 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+
+</div>

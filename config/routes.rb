@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :projects
   # Defines the root path route ("/")
   # root "articles#index"
-  get "aboutme", to: "aboutme#index"
+  get 'aboutme' => "aboutme#index", :as => :about_me_path
+
 end

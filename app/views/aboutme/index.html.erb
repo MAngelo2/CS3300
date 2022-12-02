@@ -2,26 +2,75 @@
 
 <nav class="navbar navbar-expand-sm bg-dark text-white">
   <div class="container-fluid">
-      <div class="btn btn-primary">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <div class="btn btn-primary">
 
         <%= link_to "Home", projects_path, :class => "btn", :class => "text-white" %>
 
-      </div>
+         </div>
+      </li>
+      <li class="nav-item">
+        <a href="aboutme" class="btn btn-primary">About Me</a>
+      </li>
 
-      <% if user_signed_in? %>
-      Welcome, <%= current_user.email %>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
+      <li class="nav-item">
+          <% if user_signed_in? %>
+          Welcome, <%= current_user.email %>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+      </li>
+    </ul>
 
   </div>
+
+</nav>
 
 
 </nav>
 
-<h1>About me!</h1>
+<div class="card">
+  <div class="card-header">About me</div>
+
+  <div class="card">
+  <div class="card-header">Biography</div>
+
+  <p>Mathew Angelo is a 24 year old Computer Science student.</p>
+  <p>He is currently a Sopohomore at the University of Colorado, Colorado Springs and is projected to graduate in December 2024.</p>
+
+  </div>
+
+  <div class="card">
+  <div class="card-header">Work Experience</div>
+  <p>
+  1N151A Geospatial Analyst - United States Air Force
+  </p>
+  <p>
+  2016 - 2020
+  </p>
+
+  </div>
+
+  <div class="card">
+  <div class="card-header">Contact Information</div>
+  <p>
+  Email: mangelo2@uccs.edu
+  </p>
+  <p>
+  Cell: (775) 835-1155
+  </p>
+
+  </div>
+</div>
+
+  </div>
+
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
 
 </div>
